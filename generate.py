@@ -70,12 +70,10 @@ def copy_files(output_dir, platform_dir, arch):
                                                                         folder, item))
     shutil.copytree(os.path.join(Jizzberry_dir, "Jizzberry", "templates"), os.path.join(output_dir, app_dir,
                                                                                    "Jizzberry", "templates"))
-    os.remove(os.path.join(output_dir, app_dir, "generate.pyc"))
     shutil.copy(os.path.join(Jizzberry_dir, "Pornstar_data.db"), os.path.join(output_dir, app_dir, "Pornstar_data.db"))
     shutil.copytree(os.path.join(download_path, arch), os.path.join(output_dir, "py-dist"))
     shutil.move(os.path.join(platform_dir, "Jizzberry.exe"), os.path.join(output_dir, "Jizzberry.exe"))
     shutil.move(os.path.join(platform_dir, "startCelery.exe"), os.path.join(output_dir, app_dir, "startCelery.exe"))
-
 
 def download_packages(url, arch):
     if not os.path.exists(os.path.join(download_path, arch)):
