@@ -2,13 +2,13 @@
 call py-dist\scripts\env.bat
 set status=0
 for /F "tokens=3 delims=: " %%H in ('sc query "RabbitMQ" ^| findstr "        STATE"') do (
-  if not ["%%H"] == ["RUNNING"] (
-    echo RabbitMQ not running or not installed
-    set status=1
-    set /P openLink=Open link to download RabbitMQ [y/n]?:
+  if ["%%H"] == ["RUNNING"] (
+    set status=0
   )
 )
 if %status% == 1 (
+    echo RabbitMQ not running or not installed
+    set /P openLink=Open link to download RabbitMQ [y/n]?:
     if ["%openLink%"] == ["y"] ( start "" https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.2/rabbitmq-server-3.8.2.exe )
     pause
 ) else (
