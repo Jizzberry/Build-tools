@@ -42,7 +42,7 @@ def make_dirs(output_path):
 def generate_exe(platform_dir, extra_option):
     print("Generating executables...")
     options_launcher = ""
-    options_celery = "/invisible"
+    options_celery = ""     # "/invisible"
     launcher = subprocess.Popen([os.path.join(platform_dir, "bat2exe"), "/bat", os.path.join(platform_dir,
                                                                                              "launchapp.bat"),
                                  "/exe", os.path.join(platform_dir, "Jizzberry.exe"), options_launcher, extra_option],
@@ -70,7 +70,7 @@ def copy_files(output_dir, platform_dir, arch):
                                                                         folder, item))
     shutil.copytree(os.path.join(Jizzberry_dir, "Jizzberry", "templates"), os.path.join(output_dir, app_dir,
                                                                                    "Jizzberry", "templates"))
-    shutil.copy(os.path.join(Jizzberry_dir, "Pornstar_data.db"), os.path.join(output_dir, app_dir, "Pornstar_data.db"))
+    shutil.copy(os.path.join(Jizzberry_dir, "Database", "Pornstar_data.db"), os.path.join(output_dir, app_dir, "Database", "Pornstar_data.db"))
     shutil.copytree(os.path.join(download_path, arch), os.path.join(output_dir, "py-dist"))
     shutil.move(os.path.join(platform_dir, "Jizzberry.exe"), os.path.join(output_dir, "Jizzberry.exe"))
     shutil.move(os.path.join(platform_dir, "startCelery.exe"), os.path.join(output_dir, app_dir, "startCelery.exe"))
