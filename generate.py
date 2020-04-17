@@ -58,6 +58,7 @@ def copy_files(output_dir, arch):
     shutil.copy(os.path.join(Jizzberry_dir, "Database", "Pornstar_data.db"),
                 os.path.join(output_dir, app_dir, "Database", "Pornstar_data.db"))
     shutil.copytree(os.path.join(download_path, arch), os.path.join(output_dir, "py-dist"))
+    shutil.copy(os.path.join(BASE_DIR, "launch.bat"), os.path.join(output_dir, app_dir, "launch.bat"))
 
 
 def download_packages(url, arch):
